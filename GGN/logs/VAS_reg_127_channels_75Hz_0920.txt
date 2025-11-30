@@ -1,0 +1,2406 @@
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=100, lr=8e-05, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.4, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=3, encoder='transformerencoder', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='huber', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=100, lr=8e-05, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.4, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=3, encoder='transformerencoder', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='huber', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+加载数据，特征和标签形状:
+
+(3125, 38, 127, 75)
+
+(3125,)
+
+(3125,)
+
+数据划分后：训练集和测试集形状:
+
+(1308, 38, 127, 75)
+
+(1308,)
+
+(562, 38, 127, 75)
+
+(562,)
+
+转置后的形状:
+
+(1308, 75, 127, 38)
+
+(1308,)
+
+(562, 75, 127, 38)
+
+(562,)
+
+num_batch
+
+41
+
+num_batch
+
+18
+
+num_batch
+
+18
+
+Run 1/1
+
+tensorboard path:
+
+./tfboard/seizure/09_20_17_52
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ TemporalTransformerEncoder(
+  (input_proj): Linear(in_features=75, out_features=256, bias=True)
+  (transformer): TransformerEncoder(
+    (layers): ModuleList(
+      (0-1): 2 x TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+        )
+        (linear1): Linear(in_features=256, out_features=512, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+        (linear2): Linear(in_features=512, out_features=256, bias=True)
+        (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.4, inplace=False)
+        (dropout2): Dropout(p=0.4, inplace=False)
+      )
+    )
+  )
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=256, out_features=32, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+weights:
+
+tensor([0.8199, 0.5800, 0.6001], device='cuda:0')
+
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=100, lr=8e-05, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.4, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=1, encoder='transformerencoder', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='huber', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+加载数据，特征和标签形状:
+
+(3125, 38, 127, 75)
+
+(3125,)
+
+(3125,)
+
+数据划分后：训练集和测试集形状:
+
+(1308, 38, 127, 75)
+
+(1308,)
+
+(562, 38, 127, 75)
+
+(562,)
+
+转置后的形状:
+
+(1308, 75, 127, 38)
+
+(1308,)
+
+(562, 75, 127, 38)
+
+(562,)
+
+num_batch
+
+41
+
+num_batch
+
+18
+
+num_batch
+
+18
+
+Run 1/1
+
+tensorboard path:
+
+./tfboard/seizure/09_20_17_54
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ TemporalTransformerEncoder(
+  (input_proj): Linear(in_features=75, out_features=256, bias=True)
+  (transformer): TransformerEncoder(
+    (layers): ModuleList(
+      (0-1): 2 x TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+        )
+        (linear1): Linear(in_features=256, out_features=512, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+        (linear2): Linear(in_features=512, out_features=256, bias=True)
+        (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.4, inplace=False)
+        (dropout2): Dropout(p=0.4, inplace=False)
+      )
+    )
+  )
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=256, out_features=32, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+weights:
+
+tensor([0.8199, 0.5800, 0.6001], device='cuda:0')
+
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=100, lr=8e-05, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.4, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=1, encoder='transformerencoder', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='huber', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+加载数据，特征和标签形状:
+
+(3125, 38, 127, 75)
+
+(3125,)
+
+(3125,)
+
+数据划分后：训练集和测试集形状:
+
+(1308, 38, 127, 75)
+
+(1308,)
+
+(562, 38, 127, 75)
+
+(562,)
+
+转置后的形状:
+
+(1308, 75, 127, 38)
+
+(1308,)
+
+(562, 75, 127, 38)
+
+(562,)
+
+num_batch
+
+41
+
+num_batch
+
+18
+
+num_batch
+
+18
+
+Run 1/1
+
+tensorboard path:
+
+./tfboard/seizure/09_20_18_14
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ TemporalTransformerEncoder(
+  (input_proj): Linear(in_features=75, out_features=256, bias=True)
+  (transformer): TransformerEncoder(
+    (layers): ModuleList(
+      (0-1): 2 x TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+        )
+        (linear1): Linear(in_features=256, out_features=512, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+        (linear2): Linear(in_features=512, out_features=256, bias=True)
+        (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.4, inplace=False)
+        (dropout2): Dropout(p=0.4, inplace=False)
+      )
+    )
+  )
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=256, out_features=32, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+weights:
+
+tensor([0.8199, 0.5800, 0.6001], device='cuda:0')
+
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=100, lr=8e-05, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.4, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=1, encoder='transformerencoder', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='huber', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+加载数据，特征和标签形状:
+
+(3125, 38, 127, 75)
+
+(3125,)
+
+(3125,)
+
+数据划分后：训练集和测试集形状:
+
+(1308, 38, 127, 75)
+
+(1308,)
+
+(562, 38, 127, 75)
+
+(562,)
+
+转置后的形状:
+
+(1308, 75, 127, 38)
+
+(1308,)
+
+(562, 75, 127, 38)
+
+(562,)
+
+num_batch
+
+41
+
+num_batch
+
+18
+
+num_batch
+
+18
+
+Run 1/1
+
+tensorboard path:
+
+./tfboard/seizure/09_20_18_16
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ TemporalTransformerEncoder(
+  (input_proj): Linear(in_features=75, out_features=256, bias=True)
+  (transformer): TransformerEncoder(
+    (layers): ModuleList(
+      (0-1): 2 x TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+        )
+        (linear1): Linear(in_features=256, out_features=512, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+        (linear2): Linear(in_features=512, out_features=256, bias=True)
+        (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.4, inplace=False)
+        (dropout2): Dropout(p=0.4, inplace=False)
+      )
+    )
+  )
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=256, out_features=32, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+weights:
+
+tensor([0.8199, 0.5800, 0.6001], device='cuda:0')
+
+epoch:
+
+0
+
+train_loss    0.109276
+val_loss      0.094253
+dtype: float64
+
+update best model, epoch:
+
+0
+
+train_loss    0.109276
+val_loss      0.094253
+dtype: float64
+
+epoch:
+
+5
+
+train_loss    0.090344
+val_loss      0.094253
+dtype: float64
+
+epoch:
+
+10
+
+train_loss    0.090496
+val_loss      0.094253
+dtype: float64
+
+epoch:
+
+15
+
+train_loss    0.090344
+val_loss      0.094253
+dtype: float64
+
+epoch:
+
+20
+
+train_loss    0.090877
+val_loss      0.094253
+dtype: float64
+
+epoch:
+
+25
+
+train_loss    0.090344
+val_loss      0.094253
+dtype: float64
+
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=100, lr=8e-05, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.4, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=1, encoder='transformerencoder', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='weighted_mse', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+score distribution:
+
+Counter({0.0: 1255, 0.6: 379, 0.7: 375, 0.5: 297, 0.8: 262, 0.9: 200, 0.4: 118, 0.2: 109, 0.3: 53, 1.0: 49, 0.1: 28})
+
+加载数据，特征和标签形状:
+
+(3125, 38, 127, 75)
+
+(3125,)
+
+(3125,)
+
+数据划分后：训练集和测试集形状:
+
+(1308, 38, 127, 75)
+
+(1308,)
+
+(562, 38, 127, 75)
+
+(562,)
+
+转置后的形状:
+
+(1308, 75, 127, 38)
+
+(1308,)
+
+(562, 75, 127, 38)
+
+(562,)
+
+num_batch
+
+41
+
+num_batch
+
+18
+
+num_batch
+
+18
+
+Run 1/1
+
+tensorboard path:
+
+./tfboard/seizure/09_20_18_24
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.4, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ TemporalTransformerEncoder(
+  (input_proj): Linear(in_features=75, out_features=256, bias=True)
+  (transformer): TransformerEncoder(
+    (layers): ModuleList(
+      (0-1): 2 x TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+        )
+        (linear1): Linear(in_features=256, out_features=512, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+        (linear2): Linear(in_features=512, out_features=256, bias=True)
+        (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.4, inplace=False)
+        (dropout2): Dropout(p=0.4, inplace=False)
+      )
+    )
+  )
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=256, out_features=32, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.4, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.4, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+weights:
+
+tensor([0.8199, 0.5800, 0.6001], device='cuda:0')
+
+epoch:
+
+0
+
+train_loss    0.204463
+val_loss      0.188507
+dtype: float64
+
+update best model, epoch:
+
+0
+
+train_loss    0.204463
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+5
+
+train_loss    0.180728
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+10
+
+train_loss    0.181275
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+15
+
+train_loss    0.181450
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+20
+
+train_loss    0.182974
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+25
+
+train_loss    0.180774
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+30
+
+train_loss    0.180841
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+35
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+40
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+45
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+50
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+55
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+60
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+65
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+70
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+75
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+80
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+epoch:
+
+85
+
+train_loss    0.180688
+val_loss      0.188507
+dtype: float64
+
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=30, lr=0.0001, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.3, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=1, encoder='rnn', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='weighted_mse', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+score distribution:
+
+Counter({0.0: 1255, 0.6: 379, 0.7: 375, 0.5: 297, 0.8: 262, 0.9: 200, 0.4: 118, 0.2: 109, 0.3: 53, 1.0: 49, 0.1: 28})
+
+加载数据，特征和标签形状:
+
+(3125, 38, 127, 75)
+
+(3125,)
+
+(3125,)
+
+数据划分后：训练集和测试集形状:
+
+(1308, 38, 127, 75)
+
+(1308,)
+
+(562, 38, 127, 75)
+
+(562,)
+
+转置后的形状:
+
+(1308, 75, 127, 38)
+
+(1308,)
+
+(562, 75, 127, 38)
+
+(562,)
+
+num_batch
+
+41
+
+num_batch
+
+18
+
+num_batch
+
+18
+
+Run 1/1
+
+tensorboard path:
+
+./tfboard/seizure/09_20_21_22
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ RNNEncoder(
+  (rnn): GRU(75, 256, num_layers=2, batch_first=True, bidirectional=True)
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=512, out_features=32, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+weights:
+
+tensor([0.8199, 0.5800, 0.6001], device='cuda:0')
+
+epoch:
+
+0
+
+train_loss    0.160856
+val_loss      0.110910
+dtype: float64
+
+update best model, epoch:
+
+0
+
+train_loss    0.160856
+val_loss      0.110910
+dtype: float64
+
+update best model, epoch:
+
+1
+
+train_loss    0.055037
+val_loss      0.035240
+dtype: float64
+
+update best model, epoch:
+
+2
+
+train_loss    0.033779
+val_loss      0.028612
+dtype: float64
+
+update best model, epoch:
+
+3
+
+train_loss    0.021934
+val_loss      0.016115
+dtype: float64
+
+update best model, epoch:
+
+4
+
+train_loss    0.013711
+val_loss      0.013169
+dtype: float64
+
+epoch:
+
+5
+
+train_loss    0.008820
+val_loss      0.007285
+dtype: float64
+
+update best model, epoch:
+
+5
+
+train_loss    0.008820
+val_loss      0.007285
+dtype: float64
+
+update best model, epoch:
+
+6
+
+train_loss    0.006162
+val_loss      0.004689
+dtype: float64
+
+update best model, epoch:
+
+8
+
+train_loss    0.003945
+val_loss      0.003730
+dtype: float64
+
+update best model, epoch:
+
+9
+
+train_loss    0.003170
+val_loss      0.003609
+dtype: float64
+
+epoch:
+
+10
+
+train_loss    0.002918
+val_loss      0.005200
+dtype: float64
+
+update best model, epoch:
+
+14
+
+train_loss    0.002692
+val_loss      0.003481
+dtype: float64
+
+epoch:
+
+15
+
+train_loss    0.002564
+val_loss      0.003767
+dtype: float64
+
+update best model, epoch:
+
+17
+
+train_loss    0.002267
+val_loss      0.003143
+dtype: float64
+
+epoch:
+
+20
+
+train_loss    0.002272
+val_loss      0.002453
+dtype: float64
+
+update best model, epoch:
+
+20
+
+train_loss    0.002272
+val_loss      0.002453
+dtype: float64
+
+update best model, epoch:
+
+21
+
+train_loss    0.002027
+val_loss      0.001884
+dtype: float64
+
+epoch:
+
+25
+
+train_loss    0.001751
+val_loss      0.002452
+dtype: float64
+
+best_epoch:
+
+21
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ RNNEncoder(
+  (rnn): GRU(75, 256, num_layers=2, batch_first=True, bidirectional=True)
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=512, out_features=32, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+test:
+
+{'test_loss': 0.0018838622296849887}
+
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=30, lr=0.0001, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.3, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=1, encoder='rnn', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='weighted_mse', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+score distribution:
+
+Counter({0.0: 1255, 0.6: 379, 0.7: 375, 0.5: 297, 0.8: 262, 0.9: 200, 0.4: 118, 0.2: 109, 0.3: 53, 1.0: 49, 0.1: 28})
+
+加载数据，特征和标签形状:
+
+(3125, 38, 127, 75)
+
+(3125,)
+
+(3125,)
+
+数据划分后：训练集和测试集形状:
+
+(1308, 38, 127, 75)
+
+(1308,)
+
+(562, 38, 127, 75)
+
+(562,)
+
+转置后的形状:
+
+(1308, 75, 127, 38)
+
+(1308,)
+
+(562, 75, 127, 38)
+
+(562,)
+
+num_batch
+
+41
+
+num_batch
+
+18
+
+num_batch
+
+18
+
+Run 1/1
+
+tensorboard path:
+
+./tfboard/seizure/09_21_08_45
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ RNNEncoder(
+  (rnn): GRU(75, 256, num_layers=2, batch_first=True, bidirectional=True)
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=512, out_features=32, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+weights:
+
+tensor([0.8199, 0.5800, 0.6001], device='cuda:0')
+
+epoch:
+
+0
+
+train_loss    0.160856
+val_loss      0.110910
+dtype: float64
+
+update best model, epoch:
+
+0
+
+train_loss    0.160856
+val_loss      0.110910
+dtype: float64
+
+update best model, epoch:
+
+1
+
+train_loss    0.055037
+val_loss      0.035240
+dtype: float64
+
+update best model, epoch:
+
+2
+
+train_loss    0.033779
+val_loss      0.028612
+dtype: float64
+
+update best model, epoch:
+
+3
+
+train_loss    0.021934
+val_loss      0.016115
+dtype: float64
+
+update best model, epoch:
+
+4
+
+train_loss    0.013711
+val_loss      0.013169
+dtype: float64
+
+epoch:
+
+5
+
+train_loss    0.008820
+val_loss      0.007285
+dtype: float64
+
+update best model, epoch:
+
+5
+
+train_loss    0.008820
+val_loss      0.007285
+dtype: float64
+
+update best model, epoch:
+
+6
+
+train_loss    0.006162
+val_loss      0.004689
+dtype: float64
+
+update best model, epoch:
+
+8
+
+train_loss    0.003945
+val_loss      0.003730
+dtype: float64
+
+update best model, epoch:
+
+9
+
+train_loss    0.003170
+val_loss      0.003609
+dtype: float64
+
+epoch:
+
+10
+
+train_loss    0.002918
+val_loss      0.005200
+dtype: float64
+
+update best model, epoch:
+
+14
+
+train_loss    0.002692
+val_loss      0.003481
+dtype: float64
+
+epoch:
+
+15
+
+train_loss    0.002564
+val_loss      0.003767
+dtype: float64
+
+update best model, epoch:
+
+17
+
+train_loss    0.002267
+val_loss      0.003143
+dtype: float64
+
+epoch:
+
+20
+
+train_loss    0.002272
+val_loss      0.002453
+dtype: float64
+
+update best model, epoch:
+
+20
+
+train_loss    0.002272
+val_loss      0.002453
+dtype: float64
+
+update best model, epoch:
+
+21
+
+train_loss    0.002027
+val_loss      0.001884
+dtype: float64
+
+epoch:
+
+25
+
+train_loss    0.001751
+val_loss      0.002452
+dtype: float64
+
+best_epoch:
+
+21
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ RNNEncoder(
+  (rnn): GRU(75, 256, num_layers=2, batch_first=True, bidirectional=True)
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=512, out_features=32, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+test:
+
+{'test_loss': 0.0018838622296849887}
+
+R^2: 0.9523
+
+[DLOG] ------------ Args Saved! -------------
+
+[DLOG] args is : by DLOG: Namespace(seed=2004, server_tag='seizure', out_middle_features=False, debug=False, task='regression', binary=False, dataset='TUH', load_dataset=True, data='4', data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', adj_file='adjs/raw_adj.npy', adj_type='er', source_data_path='P:\\mff_pkl\\selected_mff\\127channel_not_diff_3_class\\0_75Hz_npy\\Pain_reg', est_data_path='feature/est_data/eloreta_Montage_128', cross_subject=False, testing=False, arg_file='None', independent=False, using_fc=False, unit_test=False, multi_train=False, focalloss=False, focal_gamma=2.0, weighted_ce='prop', dev=False, dev_size=1000, best_model_save_path='best_models/NRS_reg_127_channels_75Hz_0920.pth', pre_model_path='./best_models/seed_pretrain_08021405', batch_size=32, epochs=30, lr=0.0001, lr_decay_rate=0.92, weight_decay=0.001, dropout=0.3, clip=3, seq_length=3, predict_len=12, scheduler=False, mo=0.1, cuda=True, transpose=False, runs=1, fig_filename='figs/max75', not_using_gnn=False, gnn_name='gwn', gnn_pooling='gate', agg_type='gate', gnn_layer_num=2, gnn_hid_dim=32, gnn_out_dim=16, gnn_fin_fout='1100,550;550,128;128,128', gnn_res=False, gnn_adj_type='None', gnn_downsample_dim=0, coarsen_switch=3, using_cnn=False, gate_t=False, att=False, recur=False, fusion=False, pretrain=False, feature_len=75, gwn_out_features=32, wavelets_num=20, rnn_layer_num=2, rnn_in_channel=32, rnn=False, bidirect=True, gcn_out_features=32, rnn_hidden_len=32, eeg_seq_len=250, predict_class_num=1, encoder='rnn', encoder_hid_dim=256, cut_encoder_dim=0, decoder='lgg_cnn', decoder_type='conv2d', decoder_downsample=-1, decoder_hid_dim=512, decoder_out_dim=32, time_len=38, predictor_num=3, predictor_hid_dim=256, pos=None, pe_type='learnable', lgg_mode='gumble', em_train=False, lgg=True, lgg_time=False, lgg_warmup=5, lgg_tau=0.1, lgg_hid_dim=64, lgg_k=5, kld_weight=0.1, vae_weight=0.1, N=127, score='VAS', reg_loss='weighted_mse', reg_normalized=True, log_file_path='logs/NRS_reg_127_channels_75Hz_0920.txt', dcgru_activation='tanh', max_diffusion_step=2)
+
+score distribution:
+
+Counter({0.0: 1255, 0.6: 379, 0.7: 375, 0.5: 297, 0.8: 262, 0.9: 200, 0.4: 118, 0.2: 109, 0.3: 53, 1.0: 49, 0.1: 28})
+
+加载数据，特征和标签形状:
+
+(3125, 38, 127, 75)
+
+(3125,)
+
+(3125,)
+
+数据划分后：训练集和测试集形状:
+
+(1308, 38, 127, 75)
+
+(1308,)
+
+(562, 38, 127, 75)
+
+(562,)
+
+转置后的形状:
+
+(1308, 75, 127, 38)
+
+(1308,)
+
+(562, 75, 127, 38)
+
+(562,)
+
+num_batch
+
+41
+
+num_batch
+
+18
+
+num_batch
+
+18
+
+Run 1/1
+
+tensorboard path:
+
+./tfboard/seizure/09_21_09_13
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ RNNEncoder(
+  (rnn): GRU(75, 256, num_layers=2, batch_first=True, bidirectional=True)
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=512, out_features=32, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+weights:
+
+tensor([0.8199, 0.5800, 0.6001], device='cuda:0')
+
+epoch:
+
+0
+
+train_loss    0.160856
+val_loss      0.110910
+dtype: float64
+
+update best model, epoch:
+
+0
+
+train_loss    0.160856
+val_loss      0.110910
+dtype: float64
+
+update best model, epoch:
+
+1
+
+train_loss    0.055037
+val_loss      0.035240
+dtype: float64
+
+update best model, epoch:
+
+2
+
+train_loss    0.033779
+val_loss      0.028612
+dtype: float64
+
+update best model, epoch:
+
+3
+
+train_loss    0.021934
+val_loss      0.016115
+dtype: float64
+
+update best model, epoch:
+
+4
+
+train_loss    0.013711
+val_loss      0.013169
+dtype: float64
+
+epoch:
+
+5
+
+train_loss    0.008820
+val_loss      0.007285
+dtype: float64
+
+update best model, epoch:
+
+5
+
+train_loss    0.008820
+val_loss      0.007285
+dtype: float64
+
+update best model, epoch:
+
+6
+
+train_loss    0.006162
+val_loss      0.004689
+dtype: float64
+
+update best model, epoch:
+
+8
+
+train_loss    0.003945
+val_loss      0.003730
+dtype: float64
+
+update best model, epoch:
+
+9
+
+train_loss    0.003170
+val_loss      0.003609
+dtype: float64
+
+epoch:
+
+10
+
+train_loss    0.002918
+val_loss      0.005200
+dtype: float64
+
+update best model, epoch:
+
+14
+
+train_loss    0.002692
+val_loss      0.003481
+dtype: float64
+
+epoch:
+
+15
+
+train_loss    0.002564
+val_loss      0.003767
+dtype: float64
+
+update best model, epoch:
+
+17
+
+train_loss    0.002267
+val_loss      0.003143
+dtype: float64
+
+epoch:
+
+20
+
+train_loss    0.002272
+val_loss      0.002453
+dtype: float64
+
+update best model, epoch:
+
+20
+
+train_loss    0.002272
+val_loss      0.002453
+dtype: float64
+
+update best model, epoch:
+
+21
+
+train_loss    0.002027
+val_loss      0.001884
+dtype: float64
+
+epoch:
+
+25
+
+train_loss    0.001751
+val_loss      0.002452
+dtype: float64
+
+best_epoch:
+
+21
+
+N:
+
+127
+
+True
+
+adj_fix shape:
+
+torch.Size([127, 127])
+
+adj_fix:
+
+Parameter containing:
+tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        ...,
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 1.],
+        [0., 0., 1.,  ..., 0., 1., 0.]], device='cuda:0', requires_grad=True)
+
+[DLOG] CNNEncoder2d out len: 30 8
+
+[DLOG] CNNEncoder2d struct: CNN2d(
+  (b1): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (bx): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+  )
+  (bn): Sequential(
+    (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+    (3): ReLU()
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Dropout(p=0.3, inplace=False)
+  )
+  (l1): Linear(in_features=61440, out_features=32, bias=True)
+)
+
+[DLOG] Predictor in channel: 48
+
+[DLOG] -------- encoder: -----------
+ RNNEncoder(
+  (rnn): GRU(75, 256, num_layers=2, batch_first=True, bidirectional=True)
+)
+
+[DLOG] -------- decoder: -----------
+ SpatialDecoder(
+  (gnn_decoder): GNNDecoder(
+    (gnns): ModuleList(
+      (0): GraphConv(
+        (lin): Linear(in_features=512, out_features=32, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+      (1): GraphConv(
+        (lin): Linear(in_features=32, out_features=16, bias=True)
+        (dropout): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (g_pooling): GateGraphPooling()
+  )
+  (cnn_decoder): CNN2d(
+    (b1): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (bx): ModuleList(
+      (0): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2))
+        (3): ReLU()
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Dropout(p=0.3, inplace=False)
+      )
+    )
+    (bn): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU()
+      (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2))
+      (3): ReLU()
+      (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): Dropout(p=0.3, inplace=False)
+    )
+    (l1): Linear(in_features=61440, out_features=32, bias=True)
+  )
+)
+
+test:
+
+{'test_loss': 0.0018838622296849887}
+
+R^2: 0.9523
+
+Scatter plot saved to figs\20250921\scatter.png
+
+Scatter plot saved to ./tfboard/seizure/09_21_09_13\scatter.png
+
+Target and output saved to ./tfboard/seizure/09_21_09_13\testing_predictions.xlsx
+
+finish training, time cost:
+
+548.1585447788239
+
+Main running Over, total time spent:
+
+556.8883280754089
+
+2025-09-21 09:23:05
+
